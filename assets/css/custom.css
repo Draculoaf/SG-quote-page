@@ -1,0 +1,16 @@
+
+body{
+    background-color: #1a1a1a;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.section-heading{
+    text-transform: capitalize;
+}
+
+#total{
+    margin-top: 20px;
+    font-size: 20px;
+    border-top: 1px solid black;
+}
