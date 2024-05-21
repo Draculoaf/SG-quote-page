@@ -1,16 +1,54 @@
-
-body{
-    background-color: #1a1a1a;
-    color: white;
-    font-family: "Montserrat", sans-serif;
+body {
+  background-color: #232323;
+  color: white;
+  font-family: "Amiko", sans-serif;
+  text-align: center;
 }
 
-.section-heading{
-    text-transform: capitalize;
+.section-heading {
+  text-transform: capitalize;
+  font-size: 25px;
 }
 
-#total{
-    margin-top: 20px;
-    font-size: 20px;
-    border-top: 1px solid black;
+h3 {
+  font-size: 20px;
+}
+
+#total {
+  margin-top: 20px;
+  font-size: 20px;
+  border-top: solid 3px #878787;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+  font-size: 25px;
+}
+
+label {
+  padding: 0px 20px 0px 0px;
+  text-transform: capitalize;
+}
+
+#software-section label {
+  visibility: hidden;
+  float: right;
+}
+
+#software-section label input {
+  visibility: visible;
+  position: static;
+  margin-left: 10px;
+}
+
+#pricing-calculator {
+  background-color: #3a3a3a;
+  margin: 0rem 20rem 0.5rem 20rem;
+  outline: solid 5px #6b6b6b;
+  border-radius: 40px;
+  text-align: left;
+  padding: 5px 25px 25px 25px;
+}
+
+#form-title {
+  left: 20px;
+  font-size: 30px;
 }
