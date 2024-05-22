@@ -147,8 +147,9 @@ Object.keys(pricingInformation).forEach((key) => {
     section.appendChild(productType);
 
     //Append product options
-    const productOptions = document.createElement("select"); //This was select
+    const productOptions = document.createElement("input"); //This was select
     productOptions.setAttribute("type", "checkbox");
+    productOptions.classList.add("custom-checkbox");
     productOptions.id = productName.replace(" ", "-").toLowerCase();
 
     //Detect when a product is chosen and then show the value
