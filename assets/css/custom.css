@@ -8,7 +8,7 @@ body {
 #pricing-calculator {
   background-color: #3a3a3a;
   margin: 0rem 20rem 0.5rem 20rem;
-  outline: solid 5px #6b6b6b;
+  outline: linear-gradient(to right, #3aff24, #0890ff, #f828f8, #ff49bc);
   border-radius: 40px;
   text-align: left;
   padding: 5px 25px 25px 25px;
@@ -29,10 +29,17 @@ body {
 .section-heading {
   text-transform: capitalize;
   font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h3 {
   font-size: 20px;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
 }
 
 #total::before {
@@ -46,56 +53,106 @@ h3 {
   padding: 20px 0px 0px 0px;
   text-align: center;
   font-size: 25px;
-  background: linear-gradient(to right, #3aff24, #0890ff, #f828f8, #ff49bc);
+  background: linear-gradient(to right, #008cff, #fd78fd);
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-label {
-  padding: 0px 20px 0px 0px;
-  text-transform: capitalize;
-}
-
-#software-section label {
-  visibility: hidden;
-  float: right;
-}
-
-@media (max-width: 600px) {
-  #software-section label input {
-    float: right;
-  }
-}
-
-#software-section label input {
-  visibility: visible;
-  position: static;
-  float: right;
 }
 
 #form-title {
   left: 20px;
   font-size: 30px;
-  background: linear-gradient(to right, #3aff24, #0890ff, #f828f8, #ff49bc);
+  background: linear-gradient(to right, #86c8ff, #fd78fd, #fd86d1);
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-input[type="checkbox"] {
-  /* background-color: transparent;
-  appearance: none;
-  height: 20px;
-  width: 20px;
-  -webkit-appearance: none;
-  -moz-appearance: none; */
-}
-
-input[type="checkbox"] {
-  accent-color: #f828f8;
-  height: 30x;
-  width: 30x;
-}
-
-input[type="checkbox"]:hover {
+/* Custom checkbox styling */
+/* Container for the custom checkbox */
+.custom-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
   cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #cccccc;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox-container:hover input ~ .checkmark {
+  background-color: #909090;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox-container input:checked ~ .checkmark {
+  background: linear-gradient(to right, #86c8ff, #fd78fd, #fd86d1);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark/indicator when checked */
+.custom-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #000000;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+#hardware-section .product-options {
+  display: block;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#software-section .product-options {
+  float: left;
+}
+
+#software-section .product-option-label {
+  display: hidden;
+}
+
+#software-section h3 {
+  display: block;
+  margin-right: 10px;
+}
+
+.product-option-label {
+  text-transform: capitalize;
 }

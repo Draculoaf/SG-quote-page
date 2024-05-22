@@ -84,28 +84,28 @@ const pricingInformation = {
     },
   ],
   software: [
-    { type: "Preuse inspection", options: [{ select: "include", price: 100 }] },
+    { type: "Preuse inspection", options: [{ select: "", price: 100 }] },
     {
       type: "Emergency scenarios",
-      options: [{ select: "include", price: 100 }],
+      options: [{ select: "", price: 100 }],
     },
     {
       type: "Startup procedures",
-      options: [{ select: "include", price: 100 }],
+      options: [{ select: "", price: 100 }],
     },
-    { type: "Warmup procedures", options: [{ select: "include", price: 100 }] },
+    { type: "Warmup procedures", options: [{ select: "", price: 100 }] },
     {
       type: "Startup procedures",
-      options: [{ select: "include", price: 100 }],
+      options: [{ select: "", price: 100 }],
     },
-    { type: "Driving/Tramming", options: [{ select: "include", price: 100 }] },
+    { type: "Driving/Tramming", options: [{ select: "", price: 100 }] },
     {
       type: "Machine orientation",
-      options: [{ select: "include", price: 100 }],
+      options: [{ select: "", price: 100 }],
     },
-    { type: "Fault finding", options: [{ select: "include", price: 100 }] },
+    { type: "Fault finding", options: [{ select: "", price: 100 }] },
 
-    { type: "VR tutorial", options: [{ select: "include", price: 100 }] },
+    { type: "VR tutorial", options: [{ select: "", price: 100 }] },
   ],
 };
 
@@ -146,36 +146,27 @@ Object.keys(pricingInformation).forEach((key) => {
     productType.innerText = productName;
     section.appendChild(productType);
 
-    //Append product options
-    const productOptions = document.createElement("input"); //This was select
-    productOptions.setAttribute("type", "checkbox");
-    productOptions.classList.add("custom-checkbox");
-    productOptions.id = productName.replace(" ", "-").toLowerCase();
+    // Container for product options
+    const productOptionsContainer = document.createElement("div");
+    productOptionsContainer.classList.add("product-options");
 
-    //Detect when a product is chosen and then show the value
-    productOptions.onchange = function () {
-      let productPrice = productOptions.value;
-      let productName = productOptions.id;
-
-      //Just calculating the total price
-      total = Number(total) + Number(productPrice);
-      console.log(total);
-      //Display the total as an HTML element
-      priceTotalDisplay.innerText = total;
-    };
-
-    //create select options
+    // Append product options
     productChoice.forEach((option) => {
-      //For each select option, make a label and an input
-      const productOptionLabel = document.createElement("label");
-      const productOption = document.createElement("input");
+      // For each select option, make a container, label, and input
+      const container = document.createElement("label");
+      container.classList.add("custom-checkbox-container");
 
+      const productOption = document.createElement("input");
       productOption.type = "checkbox";
       productOption.value = option.price;
       productOption.id = option.select.replace(" ", "-").toLowerCase();
 
-      productOptionLabel.appendChild(productOption);
-      productOptionLabel.appendChild(document.createTextNode(option.select));
+      const checkmark = document.createElement("span");
+      checkmark.classList.add("checkmark");
+
+      const productOptionLabel = document.createElement("span");
+      productOptionLabel.innerText = option.select;
+      productOptionLabel.classList.add("product-option-label");
 
       productOption.onchange = function () {
         if (productOption.checked) {
@@ -186,7 +177,12 @@ Object.keys(pricingInformation).forEach((key) => {
         priceTotalDisplay.innerText = total;
       };
 
-      section.appendChild(productOptionLabel);
+      container.appendChild(productOption);
+      container.appendChild(checkmark);
+      container.appendChild(productOptionLabel);
+      productOptionsContainer.appendChild(container);
     });
+
+    section.appendChild(productOptionsContainer);
   });
 });
