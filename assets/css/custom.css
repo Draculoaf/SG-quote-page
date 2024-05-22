@@ -3,15 +3,43 @@ body {
   color: white;
   font-family: "Amiko", sans-serif;
   text-align: center;
+  margin-bottom: 10%;
 }
 
 #pricing-calculator {
   background-color: #3a3a3a;
   margin: 0rem 20rem 0.5rem 20rem;
-  outline: solid 3px #878787;
+  position: relative;
   border-radius: 40px;
   text-align: left;
   padding: 5px 25px 25px 25px;
+  z-index: 1;
+}
+
+/* Mimics a border by making an element which is behind the main content */
+#pricing-calculator::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 43px;
+  background: linear-gradient(to right, #0262b1, #860186);
+  z-index: -1;
+}
+
+/* To avoid overlap issues with the pseudo-element */
+#pricing-calculator::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 40px; /* Same as the parent */
+  background-color: #3a3a3a; /* Same as the parent */
+  z-index: -1;
 }
 
 @media (max-width: 1200px) {
