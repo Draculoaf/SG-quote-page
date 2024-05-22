@@ -84,28 +84,19 @@ const pricingInformation = {
     },
   ],
   software: [
-    { type: "Preuse inspection", options: [{ select: "", price: 100 }] },
     {
-      type: "Emergency scenarios",
-      options: [{ select: "", price: 100 }],
+      type: "software to include",
+      options: [
+        { select: "Preuse inspection", price: 100 },
+        { select: "Emergency scenarios", price: 100 },
+        { select: "startup procedures", price: 200 },
+        { select: "warmup procedures", price: 100 },
+        { select: "Machine prientation", price: 100 },
+        { select: "Driving/Tramming", price: 200 },
+        { select: "fault finding", price: 100 },
+        { select: "VR tutorial", price: 200 },
+      ],
     },
-    {
-      type: "Startup procedures",
-      options: [{ select: "", price: 100 }],
-    },
-    { type: "Warmup procedures", options: [{ select: "", price: 100 }] },
-    {
-      type: "Startup procedures",
-      options: [{ select: "", price: 100 }],
-    },
-    { type: "Driving/Tramming", options: [{ select: "", price: 100 }] },
-    {
-      type: "Machine orientation",
-      options: [{ select: "", price: 100 }],
-    },
-    { type: "Fault finding", options: [{ select: "", price: 100 }] },
-
-    { type: "VR tutorial", options: [{ select: "", price: 100 }] },
   ],
 };
 
@@ -135,6 +126,10 @@ Object.keys(pricingInformation).forEach((key) => {
   sectionHeadingDisplay.classList.add("section-heading");
   //Append to the HTML element (display the information)
   section.appendChild(sectionHeadingDisplay);
+
+  // Create a container for all software product options
+  const softwareProductOptionsContainer = document.createElement("div");
+  softwareProductOptionsContainer.classList.add("software-product-options");
 
   //loop through all the section arrays
   pricingInformation[key].forEach((element) => {

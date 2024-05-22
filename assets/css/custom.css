@@ -8,7 +8,7 @@ body {
 #pricing-calculator {
   background-color: #3a3a3a;
   margin: 0rem 20rem 0.5rem 20rem;
-  outline: linear-gradient(to right, #3aff24, #0890ff, #f828f8, #ff49bc);
+  outline: solid 3px #878787;
   border-radius: 40px;
   text-align: left;
   padding: 5px 25px 25px 25px;
@@ -33,13 +33,18 @@ body {
   padding-bottom: 20px;
 }
 
-h3 {
+h2 {
   font-size: 20px;
+}
+
+h3 {
   font-weight: normal;
 }
 
-h2 {
+.product-option-label {
+  text-transform: capitalize;
   font-weight: normal;
+  font-size: 15px;
 }
 
 #total::before {
@@ -66,7 +71,7 @@ h2 {
   background-clip: text;
 }
 
-/* Custom checkbox styling */
+/* Custom checkbox styling from w3schools tutorial*/
 /* Container for the custom checkbox */
 .custom-checkbox-container {
   display: block;
@@ -140,19 +145,12 @@ h2 {
   margin-bottom: 20px;
 }
 
-#software-section .product-options {
-  float: left;
-}
-
-#software-section .product-option-label {
-  display: hidden;
+#software-section {
+  text-align: left;
+  display: block;
+  margin-bottom: 40px;
 }
 
 #software-section h3 {
-  display: block;
-  margin-right: 10px;
-}
-
-.product-option-label {
-  text-transform: capitalize;
+  display: none;
 }
