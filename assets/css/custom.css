@@ -46,11 +46,21 @@ body {
   #pricing-calculator {
     margin: 0rem 10rem 0.5rem 10rem;
   }
+
+  .hidden-image {
+    max-width: 50px;
+    max-height: 50px;
+  }
 }
 
 @media (max-width: 900px) {
   #pricing-calculator {
     margin: 0rem 1rem 0.5rem 1rem;
+  }
+
+  .hidden-image {
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 
@@ -81,14 +91,26 @@ h3 {
 
 #total {
   margin-top: 20px;
-  font-size: 20px;
-  border-top: solid 3px #878787;
   padding: 20px 0px 0px 0px;
+  font-size: 25px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 25px;
   text-align: center;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(35%);
+  background: linear-gradient(to right, #008cff, #fd78fd);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#total.scrolled {
   font-size: 25px;
   background: linear-gradient(to right, #008cff, #fd78fd);
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transform: translateX(0%);
+  border-top: solid 3px #878787;
 }
 
 #form-title {
@@ -99,9 +121,9 @@ h3 {
   background-clip: text;
 }
 
-/* Custom checkbox styling from w3schools tutorial*/
-/* Container for the custom checkbox */
-.custom-checkbox-container {
+/* Custom checkbox and radio button styling */
+/* Container for the custom input */
+.custom-input-container {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -114,8 +136,30 @@ h3 {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
-.custom-checkbox-container input {
+.custom-input-container:hover .hidden-image {
+  display: block;
+}
+
+.hidden-image {
+  display: none;
+  position: fixed;
+  top: 67%;
+  left: 53%;
+  max-width: 200px;
+  max-height: 200px;
+  z-index: 1000;
+  background-color: black; /* Optional: to make the image background white */
+  padding: 5px; /* Optional: to add some padding */
+  border: 1px solid #000000; /* Optional: to add a border */
+}
+
+.custom-input-container:hover .hidden-image img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Hide the browser's default input */
+.custom-input-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -123,7 +167,7 @@ h3 {
   width: 0;
 }
 
-/* Create a custom checkbox */
+/* Create a custom checkbox or radio button */
 .checkmark {
   position: absolute;
   top: 0;
@@ -135,12 +179,12 @@ h3 {
 }
 
 /* On mouse-over, add a grey background color */
-.custom-checkbox-container:hover input ~ .checkmark {
+.custom-input-container:hover input ~ .checkmark {
   background-color: #909090;
 }
 
-/* When the checkbox is checked, add a blue background */
-.custom-checkbox-container input:checked ~ .checkmark {
+/* When the input is checked, add a gradient background */
+.custom-input-container input:checked ~ .checkmark {
   background: linear-gradient(to right, #86c8ff, #fd78fd, #fd86d1);
 }
 
@@ -152,12 +196,13 @@ h3 {
 }
 
 /* Show the checkmark/indicator when checked */
-.custom-checkbox-container input:checked ~ .checkmark:after {
+.custom-input-container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
-.custom-checkbox-container .checkmark:after {
+/* Style the checkmark/indicator for checkboxes */
+.custom-input-container input[type="checkbox"]:checked ~ .checkmark:after,
+.custom-input-container input[type="radio"]:checked ~ .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
