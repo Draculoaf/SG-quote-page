@@ -1,2 +1,2 @@
 # SG-pricing
-Dean's page which can generate quotes for clients.
+A pricing page for Speak Geek? to generate quotes for clients
